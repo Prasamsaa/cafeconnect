@@ -306,9 +306,12 @@ footer .footer-links a {
         width: 80%;
         margin-bottom: 20px;
     }
-
+    .developers{
+        display: flex;
+        flex-direction: column;
+    }
     .developers .container {
-        padding: 0 60px;
+        flex-direction: column;
     }
 
     .developer-info {
@@ -317,6 +320,6 @@ footer .footer-links a {
     }
 
     .developer-image {
-        width: 30%;
+        width: 50%;
     }
 }
