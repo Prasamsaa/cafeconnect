@@ -260,7 +260,9 @@ footer .footer-links a {
     .desktop-nav {
         display: none;
     }
-
+    .logo{
+        padding-left: 10px;
+    }
     .hamburger-menu {
         display: block; /* Make it visible on mobile */
         color: white;
