@@ -26,6 +26,7 @@ header .container {
     height: 50px;
     width: 50px;
     font-weight: bold;
+    cursor: pointer;
 }
 .logo img:hover{
     transform: scale(1.1);
