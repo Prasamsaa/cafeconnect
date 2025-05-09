@@ -134,18 +134,65 @@ header .container {
     line-height: 1.6;
     margin-bottom: 20px;
 }
-
-/* Menu Item Styles */
+/* Menu Section */
 .container-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    color: rgb(0, 0, 0);
+
+}
+/* Categories Section */
+.categories {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #e5e5e5;
+    color: rgb(0, 0, 0);
+    width: 80%;
+    margin: 0 auto;
+    gap: 10px;
+}
+.cat-row{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.cat{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    background-color: #ffffff;
+    padding: 10px;
+    width: 20ch;
+    height: 3vh;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+.cat h1{
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+/* Menu Item Styles */
+.menu-items {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     padding: 20px;
     gap: 10px;
-    background-color: #d3d3d3;
-    position: absolute;
-    width: 100%;
+    background-color: #ececec;
+    width: 80%;
+    margin: 0 auto
 }
 .menu-item {
     display: flex;
@@ -174,13 +221,13 @@ header .container {
 .order-button:hover {
     background-color: #674e3c;
     color: #d3895f;
-    transform: scale(1.05);
+    transform: scale(1.01);
     transition: transform 0.3s ease;
 }
 .menu-img{ /* Image container */
-    width: 210px;
-    height: 210px;
-    border-radius: 15px;
+    width: 220px;
+    height: 220px;
+    border-radius: 10px;
     margin-bottom: 10px;
     overflow: hidden;
     object-fit: cover;
@@ -228,7 +275,7 @@ header .container {
         justify-content: center; /* Center content vertically */
         align-items: center; /* Center content horizontally */
     }
-    
+
     .hero .container {
         flex-direction: column;
         text-align: center;
