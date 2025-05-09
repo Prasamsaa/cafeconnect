@@ -268,6 +268,7 @@ footer .footer-links a {
         height: 40px;
         width: 40px;
     }
+    
     .hamburger-menu {
         font-size: 1em;
         display: block; /* Make it visible on mobile */
@@ -286,12 +287,11 @@ footer .footer-links a {
     .hero {
         height: auto; /* Allow the hero section to adjust its height based on content */
         padding: 20px 0; /* Adjust padding for smaller screens */
-        background-image: url('Cafe-Welcome.avif'); /* Ensure the background image is set correctly */
+        background-image: url('Images/Cafe-Welcome.avif'); /* Ensure the background image is set correctly */
         background-size: cover;
         background-position: center;
         justify-content: center; /* Center content vertically */
         align-items: center; /* Center content horizontally */
-
     }
 
     .hero .container {
