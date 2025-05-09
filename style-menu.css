@@ -148,7 +148,7 @@ header .container {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #ececec;
     color: rgb(0, 0, 0);
 
 }
@@ -161,10 +161,22 @@ header .container {
     justify-content: center;
     padding: 20px;
     color: rgb(0, 0, 0);
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     gap: 10px;
-    background-color: #d1b7a7;
+    background-color: #dbdbdb;
+    border-radius: 15px;
+}
+.categories h2{
+    width: 60%;
+    height: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    background-color: white;
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #493628;
 }
 
 .cat-row{
@@ -173,6 +185,7 @@ header .container {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 20px;
 }
 .cat{
     display: flex;
@@ -205,8 +218,8 @@ header .container {
     justify-content: center;
     padding: 20px;
     gap: 10px;
-    background-color: #eaeaea;
-    width: 99%;
+    background-color: #ececec;
+    width: 80%;
     margin: 0 auto;
     flex-wrap: wrap;
     flex-direction: row;
@@ -303,5 +316,52 @@ header .container {
         padding-right: 0;
         margin-bottom: 20px;
     }
+    .menu-items {
+        flex-direction: column;
+        align-items: center;
+    }
 
+    .menu-item {
+        width: 90%;
+        height: auto;
+    }
+
+    .cat-row {
+        flex-direction: row;
+        gap: 4px
+    }
+    .categories{
+        width: 100%;
+        padding: 0px;
+    }
+    .cat {
+        width: auto;
+        font-size: 0.7em;
+        height: auto;
+        padding: 3px 5px;
+        gap:4px;
+    }
+    .menu-items{
+        width: 100%;
+    }
+    .order-button {
+        padding: 8px;
+    }
+    .menu-item{}
+    .menu-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .menu-img img {
+        height: auto;
+    }
+
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
 }
