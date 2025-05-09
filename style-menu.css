@@ -153,12 +153,13 @@ header .container {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background-color: #ebebeb(0, 0%, 90%);
     color: rgb(0, 0, 0);
     width: 80%;
     margin: 0 auto;
     gap: 10px;
+    background-color: #ececec;
 }
+
 .cat-row{
     display: flex;
     gap: 20px;
@@ -180,6 +181,11 @@ header .container {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     cursor: pointer;
+}
+.cat:hover{
+    background-color: #e4e4e4;
+    transform: scale(1.01);
+    transition: transform 0.3s ease;
 }
 .cat h1{
     font-size: 3em;
