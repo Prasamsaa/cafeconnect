@@ -14,6 +14,8 @@ body {
 header {
     background-color: #493628;
     padding: 1px 0;
+    width: 100%;
+    position: fixed; /* Added to position the hamburger menu correctly */
 }
 
 header .container {
@@ -268,7 +270,7 @@ footer .footer-links a {
         height: 40px;
         width: 40px;
     }
-    
+
     .hamburger-menu {
         font-size: 1em;
         display: block; /* Make it visible on mobile */

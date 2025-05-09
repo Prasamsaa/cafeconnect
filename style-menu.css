@@ -4,16 +4,20 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
-
+/* Navbar */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 5px;
+    
 }
 
 header {
     background-color: #493628;
     padding: 1px 0;
+    width: 100%;
+    
+    position: fixed; /* Added to position the hamburger menu correctly */
 }
 
 header .container {
@@ -183,7 +187,7 @@ header .container {
     cursor: pointer;
 }
 .cat:hover{
-    background-color: #e4e4e4;
+    background-color: #dbdbdb;
     transform: scale(1.01);
     transition: transform 0.3s ease;
 }
