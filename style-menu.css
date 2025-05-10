@@ -365,6 +365,10 @@ header .container {
 
     .menu-img img {
     }
+    .menu-item > h2{
+        font-size: 1.08em;
+        margin-bottom: 5px;
+    }
     .desc{
         font-size: 0px;
     }
