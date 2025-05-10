@@ -317,17 +317,7 @@ header .container {
         padding-right: 0;
         margin-bottom: 20px;
     }
-    .menu-items {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .menu-item {
-        width: 90%;
-        height: auto;
-        font-size: 0.8em;
-    }
-
+    /* Categories Section */
     .cat-row {
         flex-direction: row;
         gap: 4px
@@ -336,16 +326,35 @@ header .container {
         width: 100%;
         padding: 0px;
     }
+    .categories h2{
+        height: 25px;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        background-color: white;
+        font-size: 1.3em;
+        margin-bottom: 1px;
+        color: #493628;
+    }
     .cat {
         width: auto;
         font-size: 0.7em;
-        height: auto;
+        height: 18px;
         padding: 3px 5px;
         gap:4px;
     }
+    /* Menu Item Styles */
     .menu-items{
         width: 100%;
+        flex-direction: row;
     }
+    .menu-item {
+        width: 46%;
+        height: auto;
+        font-size: 0.8em;
+        transition: font-size 0.3s ease;
+    }
+
     .order-button {
         padding: 8px;
     }
@@ -356,7 +365,12 @@ header .container {
 
     .menu-img img {
     }
-
+    .desc{
+        font-size: 0px;
+    }
+    .menu-item:hover > .desc{
+        font-size: 0.8em;
+    }
     .hero-content h1 {
         font-size: 2em;
     }
