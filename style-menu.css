@@ -372,9 +372,9 @@ header .container {
     .desc{
         font-size: 0px;
     }
-    .menu-item:hover > .desc{
+    /* .menu-item:hover > .desc{
         font-size: 0.8em;
-    }
+    } */
     .hero-content h1 {
         font-size: 2em;
     }
