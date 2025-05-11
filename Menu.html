@@ -17,7 +17,7 @@
                     <li><a href="Menu.html">Menu</a></li>
                     <li><a href="#">Services</a></li>
                     <li><a href="#">Contact</a></li>
-                    <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li><a href="Cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
                 </ul>
             </nav>
             <button class="hamburger-menu">☰</button>
@@ -26,7 +26,7 @@
                     <li><a href="Menu.html">Menu</a></li>
                     <li><a href="#">Services</a></li>
                     <li><a href="#">Contact</a></li>
-                    <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li><a href="Cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
                 </ul>
             </nav>
         </div>
@@ -70,25 +70,25 @@
         </div>
     <div class="menu-items">
         <div class="menu-item" id="Cappuccino"> <!-- Assigning ID For Cart Purposes -->
-            <div class="menu-img">
+            <div class="menu-img" onclick="toggleFontSize(this)">
                 <img src="Images/Coffee_eevee.png" alt="Item 1">
             </div>
             <h2>Cappuccino</h2>
             <p class="desc">A coffee beverage made with espresso, steamed milk, and foamed milk, traditionally in equal parts.</p>
             <p><b>Price:</b> $5.00</p>
-            <button class="order-button" id="order">Add to Cart</button>
+            <button class="order-button" id="cappuccinoOrder">Add to Cart</button>
         </div>
         <div class="menu-item">
-            <div class="menu-img">
+            <div class="menu-img" onclick="toggleFontSize(this)">
                 <img src="Images/Espresso.avif" alt="Item 2">
             </div>
             <h2>Espresso</h2>
             <p class="desc">A concentrated form of coffee brewed by forcing hot water under high pressure through finely ground coffee beans.</p>
             <p><b>Price:</b> $12.00</p>
-            <button class="order-button" id="order">Add to Cart</button>
+            <button class="order-button" id="espressoOrder">Add to Cart</button>
         </div>
         <div class="menu-item">
-            <div class="menu-img">
+            <div class="menu-img" onclick="toggleFontSize(this)">
                 <img src="Images/Latte.avif" alt="Item 3">
             </div>
             <h2>Latte</h2>
@@ -97,7 +97,7 @@
             <button class="order-button" id="order">Add to Cart</button>
     </div>
         <div class="menu-item">
-            <div class="menu-img">
+            <div class="menu-img" onclick="toggleFontSize(this)">
                 <img src="Images/Americano.avif" alt="Item 4">
             </div>
             <h2>Americano</h2>
@@ -106,7 +106,7 @@
             <button class="order-button" id="order">Add to Cart</button>
         </div>
         <div class="menu-item">
-            <div class="menu-img">
+            <div class="menu-img" onclick="toggleFontSize(this)">
                 <img src="Images/Item5.jpg" alt="Item 5">
             </div>
             <h2>Item 5</h2>
@@ -114,7 +114,7 @@
             <p><b>Price:</b> $10.00</p>
             <button class="order-button" id="order">Add to Cart</button>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" onclick="toggleFontSize(this)">
             <div class="menu-img">
                 <img src="Images/Item6.jpg" alt="Item 6">
             </div>
@@ -124,7 +124,7 @@
             <button class="order-button" id="order">Add to Cart</button>
         </div>
     <!-- Add more menu items as needed -->
-     <script src="Scripts/script-menu.js"></script>
+     <script src="Scripts/script.js"></script>
     </div>
     </header>
     </body>
