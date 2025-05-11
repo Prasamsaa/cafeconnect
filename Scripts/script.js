@@ -27,3 +27,17 @@ document.querySelectorAll('.cat-row .cat').forEach(category => {
         });
     });
 });
+
+// Log in function for admin
+function validatePassword(event) {
+  event.preventDefault(); // Prevent form from submitting normally
+  const password = document.getElementById("password").value;
+
+  if (password === "123") {
+    window.location.href = "admin.html"; // Redirect if password is correct
+  } else {
+    alert("Incorrect password!");
+  }
+
+  return false; // Prevent form submission
+}
