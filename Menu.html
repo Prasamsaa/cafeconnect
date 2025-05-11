@@ -69,7 +69,7 @@
         </div>
         </div>
     <div class="menu-items">
-        <div class="menu-item" id="Cappuccino"> <!-- Assigning ID For Cart Purposes -->
+        <div class="menu-item" data-category="hot-beverages"> <!-- Assigning ID For Cart Purposes -->
             <div class="menu-img" onclick="toggleFontSize(this)">
                 <img src="Images/Coffee_eevee.png" alt="Item 1">
             </div>
@@ -78,7 +78,7 @@
             <p><b>Price:</b> $5.00</p>
             <button class="order-button" id="cappuccinoOrder">Add to Cart</button>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" data-category="hot-beverages">
             <div class="menu-img" onclick="toggleFontSize(this)">
                 <img src="Images/Espresso.avif" alt="Item 2">
             </div>
@@ -87,7 +87,7 @@
             <p><b>Price:</b> $12.00</p>
             <button class="order-button" id="espressoOrder">Add to Cart</button>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" data-category="hot-beverages">
             <div class="menu-img" onclick="toggleFontSize(this)">
                 <img src="Images/Latte.avif" alt="Item 3">
             </div>
@@ -96,7 +96,7 @@
             <p><b>Price:</b> $15.00</p>
             <button class="order-button" id="order">Add to Cart</button>
     </div>
-        <div class="menu-item">
+        <div class="menu-item" data-category="hot-beverages">
             <div class="menu-img" onclick="toggleFontSize(this)">
                 <img src="Images/Americano.avif" alt="Item 4">
             </div>
@@ -114,8 +114,8 @@
             <p><b>Price:</b> $10.00</p>
             <button class="order-button" id="order">Add to Cart</button>
         </div>
-        <div class="menu-item" onclick="toggleFontSize(this)">
-            <div class="menu-img">
+        <div class="menu-item" >
+            <div class="menu-img" onclick="toggleFontSize(this)">
                 <img src="Images/Item6.jpg" alt="Item 6">
             </div>
             <h2>Item 6</h2>
@@ -124,7 +124,20 @@
             <button class="order-button" id="order">Add to Cart</button>
         </div>
     <!-- Add more menu items as needed -->
-     <script src="Scripts/script.js"></script>
+    
+    
     </div>
+
+    </div>
+        <footer>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+        </div>
+         <script src="Scripts/script.js"></script>
+    </footer>
     </header>
     </body>

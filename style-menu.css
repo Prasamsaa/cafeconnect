@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+
 }
 body {
     font-family: sans-serif;
@@ -270,6 +271,27 @@ header .container {
     object-fit: cover;
     transition: transform 0.3s ease;
 }
+footer {
+    background-color: #303030;
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+    width: 100%;
+}
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+footer ul li {
+    margin: 0 10px;
+}
+footer ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
     .desktop-nav {
@@ -382,4 +404,8 @@ header .container {
     .hero-content p {
         font-size: 1em;
     }
+    footer{
+        font-size: 0.8em;
+    }
 }
+
