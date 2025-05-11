@@ -98,7 +98,7 @@ header .container {
 }
 /* Password input section */
 .container-login {
-    background-image: url(Images/blur-cafe.avif);
+    background-image: url(blur-cafe.avif);
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
