@@ -31,11 +31,11 @@ document.querySelectorAll('.cat-row .cat').forEach(category => {
 
 // Log in function for admin
 function validatePassword(event) {
-  event.preventDefault(); // Prevent form from submitting normally
+  event.preventDefault(); // Prevent form from submitting
   const password = document.getElementById("password").value;
 
   if (password === "123") {
-    window.location.href = "admin.html"; // Redirect if password is correct
+    window.location.href = "admin.html"; // Redirect 
   } else {
     alert("Incorrect password!");
   }
