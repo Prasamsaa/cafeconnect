@@ -10,17 +10,20 @@ function toggleFontSize(menuImg) {
     let desc = menuImg.parentElement.querySelector('.desc');
     desc.style.fontSize = desc.style.fontSize === '0.8em' ? '0em' : '0.8em';
 }
-// For category filter
+document.addEventListener("DOMContentLoaded", () => {
+    // Ensure all items are visible by default
+    document.querySelectorAll(".menu-item").forEach(item => {
+        item.style.display = "block";
+    });
+});
+
+// Category filtering
 document.querySelectorAll('.cat-row .cat').forEach(category => {
     category.addEventListener('click', () => {
-        const selectedCategory = category.textContent.trim().toLowerCase().replace(/\s+/g, '-');
-        
+        const selectedCategory = category.getAttribute("data-category"); // Use data-category directly
+
         document.querySelectorAll('.menu-item').forEach(item => {
-            if (item.getAttribute('data-category') === selectedCategory) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
+            item.style.display = (selectedCategory === "all" || item.getAttribute("data-category") === selectedCategory) ? "block" : "none";
         });
     });
 });
