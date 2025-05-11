@@ -100,7 +100,7 @@ header .container {
 .hero {
     padding: 40px 0;
     background-color: #361500;
-    background-image: url('Images/Cafe-Welcome.avif');
+    background-image: url('Cafe-Welcome.avif');
     background-position: center;
     opacity: 1;
     color: white;
