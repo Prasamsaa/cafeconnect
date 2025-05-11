@@ -10,6 +10,7 @@ function toggleFontSize(menuImg) {
     let desc = menuImg.parentElement.querySelector('.desc');
     desc.style.fontSize = desc.style.fontSize === '0.8em' ? '0em' : '0.8em';
 }
+// For menu items sorting default
 document.addEventListener("DOMContentLoaded", () => {
     // Ensure all items are visible by default
     document.querySelectorAll(".menu-item").forEach(item => {
@@ -17,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Category filtering
+// Menu Items sorting by category
 document.querySelectorAll('.cat-row .cat').forEach(category => {
     category.addEventListener('click', () => {
         const selectedCategory = category.getAttribute("data-category"); // Use data-category directly
