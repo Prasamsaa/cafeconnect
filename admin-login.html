@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CafeConnect - Admin Login</title>
+    <link rel="stylesheet" href="style-admin-login.css" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <script src="https://kit.fontawesome.com/5f3c0ac785.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    
+    <!-- Navigation Section -->
+    <header>
+        <div class="container">
+            <a href="index.html"><div class="logo"><img src="Images/Logo.png" alt="Logo" /></div></a>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="Menu.html">Menu</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="admin-login.html">Admin</a></li>
+                    <li><a href="Cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                </ul>
+            </nav>
+            <button class="hamburger-menu">☰</button>
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="Menu.html">Menu</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="admin-login.html">Admin</a></li>
+                    <li><a href="Cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Log in Section -->
+    <div class="container-login">
+        <div class="login-form">
+            <h2>Admin Login</h2>
+            <form onsubmit="return validatePassword(event)">
+                <div class="form-group">
+                    <label for="password">Enter Password</label>
+                    <input type="password" id="password" name="password" required />
+                </div>
+                <button type="submit" class="login-btn">Log in</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="Scripts/script.js"></script>
+</html>
