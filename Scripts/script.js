@@ -1,18 +1,27 @@
-/* For navbar menu */
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const mobileNav = document.querySelector('.mobile-nav');
+const mobileIconCart = mobileNav.querySelector('.icon-cart');
+let iconCart = document.querySelector('.icon-cart');
+let body = document.querySelector('body');
+let listProductHTML = document.querySelector('.menu-items');
+let listCartHTML = document.querySelector('.listCart');
+let iconCartSpan = document.querySelector('.icon-cart span');
+let listProducts = [];
+let cart = [];
 
+/* For navbar menu */
 hamburgerMenu.addEventListener('click', () => {
     mobileNav.classList.toggle('open');
 });
+
 /* For menu items image clicking in mobile */
 function toggleFontSize(menuImg) {
     let desc = menuImg.parentElement.querySelector('.desc');
     desc.style.fontSize = desc.style.fontSize === '0.8em' ? '0em' : '0.8em';
 }
+
 // For menu items sorting default
 document.addEventListener("DOMContentLoaded", () => {
-    // Ensure all items are visible by default
     document.querySelectorAll(".menu-item").forEach(item => {
         item.style.display = "block";
     });
@@ -21,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Menu Items sorting by category
 document.querySelectorAll('.cat-row .cat').forEach(category => {
     category.addEventListener('click', () => {
-        const selectedCategory = category.getAttribute("data-category"); // Use data-category directly
+        const selectedCategory = category.getAttribute("data-category");
 
         document.querySelectorAll('.menu-item').forEach(item => {
             item.style.display = (selectedCategory === "all" || item.getAttribute("data-category") === selectedCategory) ? "block" : "none";
@@ -31,14 +40,162 @@ document.querySelectorAll('.cat-row .cat').forEach(category => {
 
 // Log in function for admin
 function validatePassword(event) {
-  event.preventDefault(); // Prevent form from submitting
-  const password = document.getElementById("password").value;
+    event.preventDefault();
+    const password = document.getElementById("password").value;
 
-  if (password === "123") {
-    window.location.href = "admin.html"; // Redirect 
-  } else {
-    alert("Incorrect password!");
-  }
+    if (password === "123") {
+        window.location.href = "admin.html";
+    } else {
+        alert("Incorrect password!");
+    }
 
-  return false; // Prevent form submission
+    return false;
 }
+
+// For Cart Window
+
+// For Cart Window close and open
+iconCart.addEventListener('click', () => {
+    body.classList.toggle('showCart');
+});
+
+let closeCart = document.querySelector('.close');
+closeCart.addEventListener('click', () => {
+    body.classList.remove('showCart');
+});
+
+// For Cart Window close and open (mobile specific)
+mobileIconCart.addEventListener('click', () => {
+    body.classList.toggle('showCart');
+});
+
+closeCart.addEventListener('click', () => {
+    body.classList.remove('showCart');
+});
+
+// Adding data from JSON file to HTML
+const initApp = () => {
+    fetch('Products.json')
+        .then(response => response.json())
+        .then(data => {
+            listProducts = data;
+            addDataToHTML();
+
+            if (localStorage.getItem('cart')) {
+                cart = JSON.parse(localStorage.getItem('cart'));
+                addCartToHTML();
+            }
+        });
+}
+
+initApp();
+
+const addDataToHTML = () => {
+    listProductHTML.innerHTML = '';
+    if (listProducts.length > 0) {
+        listProducts.forEach((product) => {
+            let newProduct = document.createElement('div');
+            newProduct.classList.add('menu-item');
+            newProduct.setAttribute('data-category', product.category);
+            newProduct.dataset.id = product.id;
+            newProduct.innerHTML = `
+                <div class="menu-img" onclick="toggleFontSize(this)">
+                    <img src="${product.image}" alt="${product.name}">
+                </div>
+                <h2>${product.name}</h2>
+                <p class="desc">${product.description}</p>
+                <p><b>Price:</b> Rs. ${product.price}</p>
+                <button class="order-button" id="order" data-product-id="${product.id}">Add to Cart</button>
+            `;
+            listProductHTML.appendChild(newProduct);
+        });
+    }
+}
+
+// Add to cart function
+listProductHTML.addEventListener('click', (event) => {
+    let positionClick = event.target;
+    if (positionClick.classList.contains('order-button')) {
+        let product_id = positionClick.dataset.productId; // Use dataset
+        addToCart(product_id);
+    }
+});
+
+const addToCart = (product_id) => {
+    let positionThisProductInCart = cart.findIndex((value) => value.product_id == product_id);
+    if (cart.length === 0) {
+        cart = [{ product_id: product_id, quantity: 1 }];
+    } else if (positionThisProductInCart < 0) {
+        cart.push({ product_id: product_id, quantity: 1 });
+    } else {
+        cart[positionThisProductInCart].quantity += 1;
+    }
+    addCartToHTML();
+    addCartToMemory();
+};
+
+const addCartToHTML = () => {
+    listCartHTML.innerHTML = '';
+    let totalQuantity = 0;
+    if (cart.length > 0) {
+        cart.forEach((cartItem) => {
+            totalQuantity += cartItem.quantity;
+            let product = listProducts.find((p) => p.id == cartItem.product_id);
+            let newCart = document.createElement('div');
+            newCart.dataset.id = cartItem.product_id;
+            newCart.classList.add('item');
+            newCart.innerHTML = `
+                <div class="image">
+                    <img src="${product.image}" alt="${product.name}">
+                </div>
+                <div class="name">${product.name}</div>
+                <div class="totalPrice"><b>Rs. ${cartItem.quantity * product.price}</b></div>
+                <div class="quantity">
+                    <span class="minus"><</span>
+                    <span>${cartItem.quantity}</span>
+                    <span class="plus">></span>
+                </div>`;
+            listCartHTML.appendChild(newCart);
+        });
+    }
+    iconCartSpan.textContent = totalQuantity; // Update cart count
+};
+
+const addCartToMemory = () => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+listCartHTML.addEventListener('click', (event) => {
+    let positionClick = event.target;
+    if (positionClick.classList.contains('plus') || positionClick.classList.contains('minus')) {
+        let product_id = positionClick.parentElement.parentElement.dataset.id;
+        let type = 'minus';
+        if (positionClick.classList.contains('plus')) {
+            type = 'plus';
+        }
+        changeQuantity(product_id, type);
+    }
+});
+
+const changeQuantity = (product_id, type) => {
+    let positionItemInCart = cart.findIndex((value) => value.product_id == product_id);
+    if (positionItemInCart >= 0) {
+        switch (type) {
+            case 'plus':
+                cart[positionItemInCart].quantity += 1;
+                break;
+            default:
+                let valueChange = cart[positionItemInCart].quantity - 1;
+                if (valueChange > 0) {
+                    cart[positionItemInCart].quantity = valueChange;
+                } else {
+                    cart.splice(positionItemInCart, 1);
+                }
+                break;
+        }
+    }
+    addCartToMemory();
+    addCartToHTML();
+};
+
+// --- New Functionality ---
