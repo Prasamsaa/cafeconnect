@@ -10,137 +10,181 @@
     <script src="https://kit.fontawesome.com/5f3c0ac785.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
-    <header>
-        <div class="container">
-            <div class="logo"><a href="index.html"><img src="Images/Logo.png" alt=""></a></div>
-            <nav class="desktop-nav">
-                <ul>
-                    <li><a href="Menu.html">Menu</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Reviews</a></li>
-                    <li><a href="admin-login.html">Admin</a></li>
-                    <li><a href="Cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
-                </ul>
-            </nav>
-            <button class="hamburger-menu">☰</button>
-            <nav class="mobile-nav">
-                <ul>
-                    <li><a href="Menu.html">Menu</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Reviews</a></li>
-                    <li><a href="admin-login.html">Admin</a></li>
-                    <li><a href="Cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Menu</h1>
-                <p>Browse your desired Cafe items.</p>
+<body class="">
+    <div class="container-all">
+        <!-- Navigation Section -->
+        <header>
+            <div class="container">
+                <div class="logo"><a href="index.html"><img src="Images/Logo.png" alt=""></a></div>
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="Menu.html">Menu</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Reviews</a></li>
+                        <li><a href="admin-login.html">Admin</a></li>
+                        <div class="icon-cart">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>0</span>
+                        </div>
+                    </ul>
+                </nav>
+                <button class="hamburger-menu">☰</button>
+                <nav class="mobile-nav">
+                    <ul>
+                        <li><a href="Menu.html">Menu</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Reviews</a></li>
+                        <li><a href="admin-login.html">Admin</a></li>
+                        <div class="icon-cart">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>0</span>
+                        </div>
+                    </ul>
+                </nav>
             </div>
-        </div>
-    </section>
-    <!-- Categories Section -->
+        </header>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Menu</h1>
+                    <p>Browse your desired Cafe items.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Categories Section -->
 
 
-    <div class="container-menu">
-        <div class="categories">
-            <h2>Categories</h2>
-            <div class="cat-row">
-                <div class="cat" data-category="all">
-                    <h3><i class="fa-solid fa-list"></i> Show All</h3>
-                </div>
-                <div class="cat" data-category="hot-beverages">
-                    <h3><i class="fa-solid fa-mug-hot"></i> Hot beverages</h3>
-                </div>
-                <div class="cat" data-category="cold-beverages">
-                    <h3><i class="fa-solid fa-snowflake"></i> Cold beverages</h3>
-                </div>
-                <div class="cat" data-category="pastries">
-                    <h3><i class="fa-solid fa-cake-candles"></i> Pastries</h3>
-                </div>
-                <div class="cat" data-category="cookies">
-                    <h3><i class="fa-solid fa-cookie"></i> Cookies</h3>
-                </div>
-                <div class="cat" data-category="bakery">
-                    <h3><i class="fa-solid fa-bread-slice"></i> Bakery</h3>
-                </div>
-                <div class="cat" data-category="salads">
-                    <h3><i class="fa-solid fa-carrot"></i> Salads</h3>
+        <div class="container-menu">
+            <div class="categories">
+                <h2>Categories</h2>
+                <div class="cat-row">
+                    <div class="cat" data-category="all">
+                        <h3><i class="fa-solid fa-list"></i> Show All</h3>
+                    </div>
+                    <div class="cat" data-category="hot-beverages">
+                        <h3><i class="fa-solid fa-mug-hot"></i> Hot beverages</h3>
+                    </div>
+                    <div class="cat" data-category="cold-beverages">
+                        <h3><i class="fa-solid fa-snowflake"></i> Cold beverages</h3>
+                    </div>
+                    <div class="cat" data-category="pastries">
+                        <h3><i class="fa-solid fa-cake-candles"></i> Pastries</h3>
+                    </div>
+                    <div class="cat" data-category="cookies">
+                        <h3><i class="fa-solid fa-cookie"></i> Cookies</h3>
+                    </div>
+                    <div class="cat" data-category="bakery">
+                        <h3><i class="fa-solid fa-bread-slice"></i> Bakery</h3>
+                    </div>
+                    <div class="cat" data-category="salads">
+                        <h3><i class="fa-solid fa-carrot"></i> Salads</h3>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Menu Items -->
-        <div class="menu-items">
-            <div class="menu-item" data-category="hot-beverages">
-                <!-- Assigning data-categories For Sorting Purposes -->
-                <div class="menu-img" onclick="toggleFontSize(this)">
-                    <img src="Images/Coffee_eevee.png" alt="Item 1">
-                </div>
-                <h2>Cappuccino</h2>
-                <p class="desc">A coffee beverage made with espresso, steamed milk, and foamed milk, traditionally in
-                    equal parts.</p>
-                <p><b>Price:</b> $5.00</p>
-                <button class="order-button" id="cappuccinoOrder">Add to Cart</button>
-            </div>
-            <div class="menu-item" data-category="hot-beverages">
-                <div class="menu-img" onclick="toggleFontSize(this)">
-                    <img src="Images/Espresso.avif" alt="Item 2">
-                </div>
-                <h2>Espresso</h2>
-                <p class="desc">A concentrated form of coffee brewed by forcing hot water under high pressure through
-                    finely ground coffee beans.</p>
-                <p><b>Price:</b> $12.00</p>
-                <button class="order-button" id="espressoOrder">Add to Cart</button>
-            </div>
-            <div class="menu-item" data-category="hot-beverages">
-                <div class="menu-img" onclick="toggleFontSize(this)">
-                    <img src="Images/Latte.avif" alt="Item 3">
-                </div>
-                <h2>Latte</h2>
-                <p class="desc">A coffee beverage made with espresso and steamed milk, often with a thin layer of foam
-                    on top.</p>
-                <p><b>Price:</b> $15.00</p>
-                <button class="order-button" id="order">Add to Cart</button>
-            </div>
-            <div class="menu-item" data-category="hot-beverages">
-                <div class="menu-img" onclick="toggleFontSize(this)">
-                    <img src="Images/Americano.avif" alt="Item 4">
-                </div>
-                <h2>Americano</h2>
-                <p class="desc">A coffee drink made by diluting a shot of espresso with hot water. A strong taste of
-                    natural Coffee.</p>
-                <p><b>Price:</b> $8.00</p>
-                <button class="order-button" id="order">Add to Cart</button>
-            </div>
-            <div class="menu-item" data-category="cold-beverages">
-                <div class="menu-img" onclick="toggleFontSize(this)">
-                    <img src="Images/Item5.jpg" alt="Item 5">
-                </div>
-                <h2>Item 5</h2>
-                <p class="desc">Description of Item 5.</p>
-                <p><b>Price:</b> $10.00</p>
-                <button class="order-button" id="order">Add to Cart</button>
-            </div>
-            <div class="menu-item" data-category="cold-beverages">
-                <div class="menu-img" onclick="toggleFontSize(this)">
-                    <img src="Images/Item6.jpg" alt="Item 6">
-                </div>
-                <h2>Item 6</h2>
-                <p class="desc">Description of Item 6.</p>
-                <p><b>Price:</b> $7.00</p>
-                <button class="order-button" id="order">Add to Cart</button>
-            </div>
-            <!-- Add more menu items as needed -->
 
+            <!-- Menu Items -->
+            <div class="menu-items">
+                <div class="menu-item" data-category="hot-beverages">
+                    <!-- Assigning data-categories For Sorting Purposes -->
+                    <div class="menu-img" onclick="toggleFontSize(this)">
+                        <img src="Images/Coffee_eevee.png" alt="Item 1">
+                    </div>
+                    <h2>Cappuccino</h2>
+                    <p class="desc">A coffee beverage made with espresso, steamed milk, and foamed milk, traditionally
+                        in
+                        equal parts.</p>
+                    <p><b>Price:</b> $5.00</p>
+                    <button class="order-button" id="cappuccinoOrder">Add to Cart</button>
+                </div>
+                <div class="menu-item" data-category="hot-beverages">
+                    <div class="menu-img" onclick="toggleFontSize(this)">
+                        <img src="Images/Espresso.avif" alt="Item 2">
+                    </div>
+                    <h2>Espresso</h2>
+                    <p class="desc">A concentrated form of coffee brewed by forcing hot water under high pressure
+                        through
+                        finely ground coffee beans.</p>
+                    <p><b>Price:</b> $12.00</p>
+                    <button class="order-button" id="espressoOrder">Add to Cart</button>
+                </div>
+                <div class="menu-item" data-category="hot-beverages">
+                    <div class="menu-img" onclick="toggleFontSize(this)">
+                        <img src="Images/Latte.avif" alt="Item 3">
+                    </div>
+                    <h2>Latte</h2>
+                    <p class="desc">A coffee beverage made with espresso and steamed milk, often with a thin layer of
+                        foam
+                        on top.</p>
+                    <p><b>Price:</b> $15.00</p>
+                    <button class="order-button" id="order">Add to Cart</button>
+                </div>
+                <div class="menu-item" data-category="hot-beverages">
+                    <div class="menu-img" onclick="toggleFontSize(this)">
+                        <img src="Images/Americano.avif" alt="Item 4">
+                    </div>
+                    <h2>Americano</h2>
+                    <p class="desc">A coffee drink made by diluting a shot of espresso with hot water. A strong taste of
+                        natural Coffee.</p>
+                    <p><b>Price:</b> $8.00</p>
+                    <button class="order-button" id="order">Add to Cart</button>
+                </div>
+                <div class="menu-item" data-category="cold-beverages">
+                    <div class="menu-img" onclick="toggleFontSize(this)">
+                        <img src="Images/Item5.jpg" alt="Item 5">
+                    </div>
+                    <h2>Item 5</h2>
+                    <p class="desc">Description of Item 5.</p>
+                    <p><b>Price:</b> $10.00</p>
+                    <button class="order-button" id="order">Add to Cart</button>
+                </div>
+                <div class="menu-item" data-category="cold-beverages">
+                    <div class="menu-img" onclick="toggleFontSize(this)">
+                        <img src="Images/Item6.jpg" alt="Item 6">
+                    </div>
+                    <h2>Item 6</h2>
+                    <p class="desc">Description of Item 6.</p>
+                    <p><b>Price:</b> $7.00</p>
+                    <button class="order-button" id="order">Add to Cart</button>
+                </div>
+                <!-- Add more menu items as needed -->
+
+            </div>
         </div>
     </div>
-
+    <div class="cartTab">
+        <h1>Shopping Cart</h1>
+        <div class="listCart">
+            <!-- <div class="item">
+                <div class="image">
+                    <img src="Images/Coffee_eevee.png" alt="Item 1">
+                </div>
+                <div class="name">Cappuccino</div>
+                <div class="totalPrice"><b>$5.00</b></div>
+                <div class="quantity">
+                    <span class="minus"><</span>
+                            <span>1</span>
+                            <span class="plus">></span>
+                </div>
+            </div>
+            <div class="item">
+                <div class="image">
+                    <img src="Images/Coffee_eevee.png" alt="Item 1">
+                </div>
+                <div class="name">Cappuccino</div>
+                <div class="totalPrice"><b>$5.00</b></div>
+                <div class="quantity">
+                            <span class="minus"><</span>
+                            <span>1</span>
+                            <span class="plus">></span>
+                </div> -->
+            </div>
+        
+        <div class="btn">
+            <button class="checkout" id="checkout">Checkout</button>
+            <button class="close" id="close">Close</button>
+        </div>
+        </div>
     <!-- Footer Section -->
     <footer>
         <div class="footer-links">
@@ -152,5 +196,5 @@
         </div>
         <script src="Scripts/script.js"></script>
     </footer>
-    </header>
+
 </body>
