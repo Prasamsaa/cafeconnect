@@ -49,7 +49,26 @@ header .container {
 .desktop-nav ul li {
     margin-left: 20px;
 }
+.icon-cart{
+    cursor: pointer;
+    color: white;
+    margin-left: 15px;
 
+}
+.icon-cart:hover{
+    transform: scale(1.001);
+    transition: transform 0.3s ease;
+    color:#d3895f
+}
+.icon-cart span{
+    background-color: red;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 0.8em; 
+}
+.icon-cart:hover span{
+    color: white;
+}
 .desktop-nav ul li a {
     text-decoration: none;
     color: #ffffff;
