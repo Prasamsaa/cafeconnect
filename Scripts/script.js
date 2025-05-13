@@ -1,3 +1,8 @@
+// This is the main JavaScript file for the project.
+// It contains all the functions and event listeners for the project.
+
+// These are the global variables used in the project
+// They are used to store the elements in the HTML and the data from the JSON file.
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const mobileNav = document.querySelector('.mobile-nav');
 const mobileIconCart = mobileNav.querySelector('.icon-cart');
@@ -89,7 +94,9 @@ const initApp = () => {
             }
         });
 }
-
+// Calling the init app function to load the datafrom JSON as the site loads
+// and also check if the cart is in local storage.
+// If it is, then it will load the cart from local storage.
 initApp();
 
 // THis function is used to add menu data from JSON file to HTML
@@ -168,6 +175,9 @@ const addCartToHTML = () => {
     iconCartSpan.textContent = totalQuantity; // Update cart count
 };
 
+// This function is used to add the cart to the local storage
+// so that it can be accessed later when the page is reloaded or closed and reopened.
+// It converts the cart array to a string and stores it in the local storage.
 const addCartToMemory = () => {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
