@@ -74,13 +74,15 @@ closeCart.addEventListener('click', () => {
 });
 
 // Adding data from JSON file to HTML
+// This function is called when the page loads
+// and it fetches the data from the JSON file and adds it to the HTML.
 const initApp = () => {
     fetch('Products.json')
         .then(response => response.json())
         .then(data => {
             listProducts = data;
             addDataToHTML();
-
+            // Check if cart is in local storage
             if (localStorage.getItem('cart')) {
                 cart = JSON.parse(localStorage.getItem('cart'));
                 addCartToHTML();
@@ -90,6 +92,7 @@ const initApp = () => {
 
 initApp();
 
+// THis function is used to add menu data from JSON file to HTML
 const addDataToHTML = () => {
     listProductHTML.innerHTML = '';
     if (listProducts.length > 0) {
@@ -121,6 +124,8 @@ listProductHTML.addEventListener('click', (event) => {
     }
 });
 
+// This function is used to add product_id and quantity to the cart
+// and also update the cart in the HTML by calling the add cart to the html function.
 const addToCart = (product_id) => {
     let positionThisProductInCart = cart.findIndex((value) => value.product_id == product_id);
     if (cart.length === 0) {
@@ -134,6 +139,8 @@ const addToCart = (product_id) => {
     addCartToMemory();
 };
 
+// This function is used to add the cart to the HTML
+// and also update the cart count in the icon.
 const addCartToHTML = () => {
     listCartHTML.innerHTML = '';
     let totalQuantity = 0;
@@ -165,6 +172,7 @@ const addCartToMemory = () => {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
+// For adding or subtracting quantity in cart
 listCartHTML.addEventListener('click', (event) => {
     let positionClick = event.target;
     if (positionClick.classList.contains('plus') || positionClick.classList.contains('minus')) {
@@ -177,6 +185,8 @@ listCartHTML.addEventListener('click', (event) => {
     }
 });
 
+// This function is used to change the quantity of the product in the cart
+// and also remove the product from the cart if the quantity is 0.
 const changeQuantity = (product_id, type) => {
     let positionItemInCart = cart.findIndex((value) => value.product_id == product_id);
     if (positionItemInCart >= 0) {
