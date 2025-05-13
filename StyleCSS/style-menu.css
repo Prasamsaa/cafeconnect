@@ -539,6 +539,11 @@ body.showCart .container-all{
         grid-template-rows: 70px 1fr 70px;
         inset: 0 -400px 0 auto;
     }
+    .cartTab .btn {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
     .cartTab .listCart .item{
         grid-template-columns: 70px 123px 50px 1fr;
         gap: 10px;
