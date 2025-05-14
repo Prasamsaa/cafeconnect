@@ -7,19 +7,21 @@ body {
     font-family: 'Outfit', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: rgb(255, 247, 240);
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 5px;
+    
 }
 
 header {
     background-color: #493628;
     padding: 1px 0;
     width: 100%;
-    position: fixed; /* Added to position the hamburger menu correctly */
+     /* Added to position the hamburger menu correctly */
 }
 
 header .container {
@@ -68,6 +70,9 @@ header .container {
 }
 .icon-cart:hover span{
     color: white;
+}
+body.showCart .cartTab {
+    inset: 0 0 0 auto; /* Show the cart */
 }
 .desktop-nav ul li a {
     text-decoration: none;
@@ -118,6 +123,155 @@ header .container {
     text-decoration: none;
     color: #fff;
 }
+
+/* Check out styles */
+.container-checkout{
+    padding: 50px;
+    display: grid;
+    grid-template: 
+    "order-summary "
+    "checkout-form ";
+    gap: 20px
+}
+.order-summary{
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0,0.1);
+}
+.order-summary{
+    font-size: 1.1em;
+}
+.checkout-form{
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0,0.1); 
+}
+.checkout-form label{
+    display: block;
+}
+.checkout-form input{
+    width: 100%;
+    padding: 7px 10px;
+    margin-top: 5px;
+    border-radius: 7px;
+    border: 0.2px solid gray;
+}
+.checkout-form input:focus{
+    background-color: rgb(255, 244, 240);
+}
+.checkout-form select{
+    width: 100%;
+    padding: 7px;
+    border-radius: 7px;
+}
+.checkout-form button{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 7px;
+    border: none;
+    background-color: #493628;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.checkout-form button:hover{
+    background-color:#674e3c
+}
+.form-group{
+    margin-top: 10px;
+}
+
+
+
+
+.items-ordered{
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+.items-ordered table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Footer section */
+footer {
+    background-color: #493628;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative; /* Added to position the footer correctly */
+    bottom: 0; /* Ensure it stays at the bottom */
+    width: 100%;
+}
+/* Checkout Page Specific Styles (Continued) */
+.cartTab{
+    display: grid;
+    width: 400px;
+    background-color: #353432;
+    color: #c6c6c6;
+    position: fixed;
+    inset: 0 -400px 0 auto;
+    grid-template-rows:  70px 1fr 70px;
+    transition: inset .5s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.cart-items {
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+.cart-item img {
+    max-height: 80px;
+    margin-right: 15px;
+}
+
+.item-details {
+    flex-grow: 1;
+}
+
+.item-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.item-quantity {
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.item-price {
+    font-weight: bold;
+    color: #333;
+}
+
+.remove-item {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.remove-item:hover {
+    background-color: #d32f2f;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
     .desktop-nav {
@@ -145,3 +299,5 @@ header .container {
         right: 20px; /* Adjust horizontal position as needed */
         z-index: 1000; /* Ensure it appears above other elements */
     }
+
+}
