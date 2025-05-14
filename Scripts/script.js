@@ -13,11 +13,14 @@ let listCartHTML = document.querySelector('.listCart');
 let iconCartSpan = document.querySelector('.icon-cart span');
 let listProducts = [];
 let cart = [];
+const cartItemsDiv = document.querySelector('.cart-items');
+
 
 /* For navbar menu */
 hamburgerMenu.addEventListener('click', () => {
     mobileNav.classList.toggle('open');
 });
+
 
 /* For menu items image clicking in mobile */
 function toggleFontSize(menuImg) {
@@ -25,13 +28,13 @@ function toggleFontSize(menuImg) {
     desc.style.fontSize = desc.style.fontSize === '0.8em' ? '0em' : '0.8em';
 }
 
+
 // For menu items sorting default
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".menu-item").forEach(item => {
         item.style.display = "block";
     });
 });
-
 // Menu Items sorting by category
 document.querySelectorAll('.cat-row .cat').forEach(category => {
     category.addEventListener('click', () => {
@@ -42,6 +45,7 @@ document.querySelectorAll('.cat-row .cat').forEach(category => {
         });
     });
 });
+
 
 // Log in function for admin
 function validatePassword(event) {
@@ -54,11 +58,11 @@ function validatePassword(event) {
         alert("Incorrect password!");
     }
 
-    return false;
+    return false; // Prevent form submission
 }
 
-// For Cart Window
 
+// For Cart Window
 // For Cart Window close and open
 iconCart.addEventListener('click', () => {
     body.classList.toggle('showCart');
@@ -219,3 +223,105 @@ const changeQuantity = (product_id, type) => {
 };
 
 // --- New Functionality ---
+function goToCheckOutPage(){
+    if (cart.length > 0) {
+        window.location.href = "CheckOut.html";
+    } else {
+        alert("Your cart is empty. Please add items to the cart before proceeding to checkout.");
+    }
+}
+// ... (Your existing JavaScript code for menu, mobile nav, etc.) ...
+
+// ... (Your existing JavaScript code) ...
+
+const cartItemsDivCheckout = document.querySelector('.cart-items');
+const totalPriceElementCheckout = document.querySelector('.total-price');
+
+// Function to display cart items on the checkout page
+function displayCartItemsCheckout() {
+    if (!cartItemsDivCheckout || !totalPriceElementCheckout) return;
+
+    cartItemsDivCheckout.innerHTML = '';
+    let totalAmount = 0;
+
+    if (cart.length === 0) {
+        cartItemsDivCheckout.innerHTML = '<p>Your cart is empty.</p>';
+        totalPriceElementCheckout.textContent = '0.00';
+        updateCartIcon();
+        return;
+    }
+
+    listProducts.forEach(product => {
+        const cartItem = cart.find(item => item.product_id == product.id);
+        if (cartItem) {
+            const cartItemElement = document.createElement('div');
+            cartItemElement.classList.add('cart-item');
+            cartItemElement.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <div class="item-details">
+                    <p class="item-name">${product.name}</p>
+                    <p class="item-quantity">Quantity: ${cartItem.quantity}</p>
+                    <p class="item-price">Rs. ${product.price * cartItem.quantity}</p>
+                    <button class="remove-item" data-product-id="${product.id}">Remove</button>
+                </div>
+            `;
+            cartItemsDivCheckout.appendChild(cartItemElement);
+            totalAmount += product.price * cartItem.quantity;
+        }
+    });
+
+    totalPriceElementCheckout.textContent = totalAmount.toFixed(2);
+    updateCartIcon(); // Update the cart icon in the header
+}
+
+// Function to remove an item from the cart
+function removeItemCheckout(productId) {
+    cart = cart.filter(item => item.product_id != productId);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCartItemsCheckout(); // Re-render the cart on the checkout page
+}
+
+// Event listener for removing items on the checkout page
+if (cartItemsDivCheckout) {
+    cartItemsDivCheckout.addEventListener('click', (event) => {
+        if (event.target.classList.contains('remove-item')) {
+            const productId = event.target.dataset.productId;
+            removeItemCheckout(productId);
+        }
+    });
+}
+
+// Function to update the cart icon in the header
+function updateCartIcon() {
+    const cartSpan = document.querySelectorAll('.icon-cart span');
+    cartSpan.forEach(span => {
+        span.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+    });
+}
+
+// Call this function when the checkout page loads
+if (window.location.pathname.includes('CheckOut.html')) {
+    // Fetch products if not already fetched
+    if (listProducts.length === 0) {
+        fetch('Products.json')
+            .then(response => response.json())
+            .then(data => {
+                listProducts = data;
+                displayCartItemsCheckout();
+                updateCartIcon();
+            });
+    } else {
+        displayCartItemsCheckout();
+        updateCartIcon();
+    }
+} else {
+    // For other pages (like Menu.html), ensure cart icon is updated on load
+    updateCartIcon();
+}
+
+// ... (Rest of your existing JavaScript code) ...
+// Call this function when CheckOut.html loads
+window.addEventListener('DOMContentLoaded', (event) => {
+    initApp(); // Initialize to fetch products (if not already fetched)
+    displayCartItems();
+});
