@@ -335,6 +335,10 @@ footer ul li a {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
+.cartTab .btn button a{
+    padding: 10px;
+    
+}
 .cartTab .btn button{
     background-color: #c79775;
     color: white;
