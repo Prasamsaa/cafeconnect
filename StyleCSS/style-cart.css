@@ -299,5 +299,12 @@ footer {
         right: 20px; /* Adjust horizontal position as needed */
         z-index: 1000; /* Ensure it appears above other elements */
     }
-
+.container-checkout{
+    padding: 15px;
+    display: grid;
+    grid-template: 
+    "order-summary "
+    "checkout-form ";
+    gap: 20px
+}
 }
