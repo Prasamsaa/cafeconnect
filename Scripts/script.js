@@ -16,7 +16,7 @@ let cart = [];
 const cartItemsDiv = document.querySelector('.cart-items');
 
 
-/* For navbar menu */
+/* For navbar menu (hamburger) */
 hamburgerMenu.addEventListener('click', () => {
     mobileNav.classList.toggle('open');
 });
