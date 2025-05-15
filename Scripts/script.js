@@ -231,3 +231,57 @@ function goToCheckOutPage(){
         alert("Your cart is empty. Please add items to the cart before proceeding to checkout.");
     }
 }
+/**
+ * Function to load cart data from localStorage and display it in the order summary section on CheckOut.html.
+ * Call this function on CheckOut.html after DOMContentLoaded.
+ */
+function loadOrderSummary() {
+    const orderSummaryDiv = document.querySelector('.order-summary');
+    if (!orderSummaryDiv) return;
+
+    orderSummaryDiv.innerHTML = ''; // Ensure it's empty by default
+
+    // Get cart and products from localStorage and fetch if needed
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    fetch('Products.json')
+        .then(response => response.json())
+        .then(products => {
+            let total = 0;
+            cart.forEach(cartItem => {
+                const product = products.find(p => p.id == cartItem.product_id);
+                if (product) {
+                    const itemTotal = product.price * cartItem.quantity;
+                    total += itemTotal;
+                    const itemDiv = document.createElement('div');
+                    itemDiv.classList.add('order-item');
+                    itemDiv.innerHTML = `
+                        <span class="item-name">${product.name}</span>
+                        <span class="item-qty">x${cartItem.quantity}</span>
+                        <span class="item-price">Rs. ${itemTotal}</span>
+                    `;
+                    orderSummaryDiv.appendChild(itemDiv);
+                }
+            });
+
+            // Add total
+            const totalDiv = document.createElement('div');
+            totalDiv.classList.add('order-total');
+            totalDiv.innerHTML = `<b>Total: Rs. ${total}</b>`;
+            orderSummaryDiv.appendChild(totalDiv);
+        });
+}
+
+// Only call loadOrderSummary once the page loads and if .order-summary exists
+document.addEventListener('DOMContentLoaded', function() {
+    const orderSummaryDiv = document.querySelector('.order-summary');
+    if (orderSummaryDiv) {
+        orderSummaryDiv.innerHTML = ''; // Make sure it's empty by default
+        loadOrderSummary();
+    }
+});
+function checkOutConfirmForm(event) {
+    event.preventDefault();
+
+    return false; // Prevent form submission
+}
+

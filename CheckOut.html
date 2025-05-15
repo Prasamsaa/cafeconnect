@@ -22,10 +22,7 @@
                     <li><a href="#">Services</a></li>
                     <li><a href="#">Reviews</a></li>
                     <li><a href="admin-login.html">Admin</a></li>
-                    <div class="icon-cart">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span>0</span>
-                    </div>
+
                 </ul>
             </nav>
             <button class="hamburger-menu">☰</button>
@@ -35,9 +32,7 @@
                     <li><a href="#">Services</a></li>
                     <li><a href="#">Reviews</a></li>
                     <li><a href="admin-login.html">Admin</a></li>
-                    <div class="icon-cart">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span>0</span>
+   
                     </div>
                 </ul>
             </nav>
@@ -45,23 +40,28 @@
     </header>
 
     <div class="container-checkout">
-        <h1>Your Cart</h1>
-        <div class="cart-items">
-        </div>
+        <h2>Order Summary</h2>
         <div class="order-summary">
-            <h2>Order Summary</h2>
-            <div class="items">
-                <div class="item">
+            
+                <div class="order-item">
+                    <span class="item-name">Item</span>
+                    <span class="item-qty">Qty</span>
+                    <span class="item-price">Rs. 400</span>
                 </div>
-            </div>
-            <div class="total">
-                Total: Rs. <span class="total-price">0.00</span>
-            </div>
+            <div class="order-item">
+                    <span class="item-name">Item Name</span>
+                    <span class="item-qty">Qty</span>
+                    <span class="item-price">Rs. 400</span>
+                </div>
         </div>
+        <div class="order-total">
+
+        </div>
+  
 
         <div class="checkout-form">
             <h2>Shipping Information</h2>
-            <form id="checkoutForm" onsubmit="checkOutConfirmForm()">
+            <form id="checkoutForm" onsubmit="checkOutConfirmForm(event)">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" required>

@@ -272,6 +272,22 @@ footer {
 .remove-item:hover {
     background-color: #d32f2f;
 }
+
+.order-item{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.item-name, .item-qty, .item-price{
+    padding: 5px 10px;
+    border-right: 1px solid rgb(125, 125, 125);
+    margin-top: 15px;
+}
+.item-name{
+    font-weight: 200;
+}
+.item-price{
+    border-right: none;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
     .desktop-nav {
