@@ -3,10 +3,14 @@
 /* For navbar menu (hamburger) */
 const mobileNav = document.querySelector('.mobile-nav');
 const hamburgerMenu = document.querySelector('.hamburger-menu');
+let totalPrice = 0;
+
+// For hamburger menu on phones
 hamburgerMenu.addEventListener('click', () => {
     mobileNav.classList.toggle('open');
 });
 
+// Loads the data from the cart to checkout Page
 function loadCartToOrderSummary() {
     const cartData = JSON.parse(localStorage.getItem('cart')) || [];
     let products = window.listProducts;
@@ -30,6 +34,8 @@ function loadCartToOrderSummary() {
     }
 }
 
+
+// Displays the loaded data from the cart
 function displayOrderSummary(cartData, products) {
     const orderSummaryDiv = document.querySelector('.order-summary');
     const orderTotalDiv = document.querySelector('.order-total');
@@ -37,14 +43,11 @@ function displayOrderSummary(cartData, products) {
         console.error("Order summary or total div not found!");
         return;
     }
-
-    // Clear previous items, but keep the header row if it's part of the HTML structure
-    // If the "Item Qty Price" header is dynamically added, you'll need to adjust
-    // For now, let's assume the header is static in HTML or you'll re-add it if needed.
+    // Clearing out order summary by default
     orderSummaryDiv.innerHTML = ''; // Clear it out
 
-    let totalPrice = 0;
-
+    
+    // Says "your cart is empty if there is nothing in your current cart"
     if (cartData.length === 0) {
         orderSummaryDiv.innerHTML = '<p>Your cart is empty.</p>';
         orderTotalDiv.innerHTML = '';
@@ -61,7 +64,7 @@ function displayOrderSummary(cartData, products) {
     `;
     orderSummaryDiv.appendChild(headerDiv);
 
-
+// Get the data from cart and localStorage or JSON, and also calculate total price
     cartData.forEach(cartItem => {
         const product = products.find(p => p.id == cartItem.product_id);
         if (product) {
@@ -71,7 +74,7 @@ function displayOrderSummary(cartData, products) {
             itemDiv.className = 'order-item';
             itemDiv.innerHTML = `
                 <span class="order-item-name">${product.name}</span>
-                <span class="order-item-qty">x${cartItem.quantity}</span>
+                <span class="order-item-qty"><span class="sub">-</span>x${cartItem.quantity}<span class="add">+</span></span>
                 <span class="order-item-price">Rs. ${itemTotal}</span>
             `;
             orderSummaryDiv.appendChild(itemDiv);
@@ -81,6 +84,7 @@ function displayOrderSummary(cartData, products) {
     orderTotalDiv.innerHTML = `<b>Total: Rs. ${totalPrice}</b>`;
 }
 
+// Validation of the form, checks if form is filled and prevents form submission by default
 function checkOutConfirmForm(event) {
     event.preventDefault();
     // Basic validation (can be expanded)
@@ -94,12 +98,45 @@ function checkOutConfirmForm(event) {
         return false;
     }
     alert("Checkout proceeding (simulation)!"); // Basic feedback
-    // Here you would typically send the data to a server
-    // and potentially clear the cart from localStorage
-    // localStorage.removeItem('cart');
-    // window.location.href = 'thankyou.html'; // Redirect to a thank you page
+    
     return false;
 }
 
 // Call loadCartToOrderSummary when the CheckOut.html page loads
 document.addEventListener('DOMContentLoaded', loadCartToOrderSummary);
+
+
+// To add and subtract the amount of items from the checkout menu
+document.querySelector('.order-summary').addEventListener('click', function(event) {
+    if (event.target.classList.contains('add') || event.target.classList.contains('sub')) {
+        const itemDiv = event.target.closest('.order-item');
+        if (!itemDiv) return;
+
+        // Get the product name from the DOM
+        const nameSpan = itemDiv.querySelector('.order-item-name');
+        if (!nameSpan) return;
+        const productName = nameSpan.textContent;
+
+        // Find product by name (assuming names are unique)
+        const products = window.listProducts || [];
+        const product = products.find(p => p.name === productName);
+        if (!product) return;
+
+        // Get cart from localStorage
+        let cartData = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartIndex = cartData.findIndex(item => item.product_id == product.id);
+        if (cartIndex === -1) return;
+        // Adds or subtracts the items based on user's interaction
+        if (event.target.classList.contains('add')) {
+            cartData[cartIndex].quantity += 1;
+        } else if (event.target.classList.contains('sub')) {
+            cartData[cartIndex].quantity -= 1;
+            if (cartData[cartIndex].quantity <= 0) {
+                cartData.splice(cartIndex, 1);
+            }
+        }
+        //Stores it to local storage
+        localStorage.setItem('cart', JSON.stringify(cartData));
+        displayOrderSummary(cartData, products);
+    }
+});

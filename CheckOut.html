@@ -10,7 +10,9 @@
     <script src="https://kit.fontawesome.com/5f3c0ac785.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="">
+<body>
+
+<!-- Hamburger menu section -->
     <header>
         <div class="container">
             <a href="index.html">
@@ -39,9 +41,10 @@
         </div>
     </header>
 
+<!-- Order Summary, Where you see what items you ordered, their quantity and price also total price -->
     <div class="container-checkout">
-        <h2>Order Summary</h2>
-        <div class="order-summary">
+        <h2 class="summaryhead">Order Summary</h2>
+        <div class="order-summary"> 
             <div class="order-item">
                 <span class="item-name">Item</span>
                 <span class="item-qty">Qty</span>
@@ -53,7 +56,7 @@
 
                 </div>
   
-
+<!-- The shipping information for for the users to input -->
         <div class="checkout-form">
             <h2>Shipping Information</h2>
             <form id="checkoutForm" onsubmit="checkOutConfirmForm(event)">
@@ -85,9 +88,9 @@
                  <button type="submit" id="checkout-btn" class="checkout-btn">Proceed to Checkout</button>
             </form>
         </div>
-
-
     </div>
+    
+    <!-- Changed script to checkout-script.js, this one works properly-->
     <script src="Scripts/checkout-script.js"></script>
 </body>
 

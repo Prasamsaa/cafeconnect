@@ -9,7 +9,7 @@ body {
     padding: 0;
     background-color: rgb(255, 247, 240);
 }
-
+/* Navigation head */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -23,7 +23,7 @@ header {
     width: 100%;
      /* Added to position the hamburger menu correctly */
 }
-
+/* Default navigation */
 header .container {
     display: flex;
     justify-content: space-between;
@@ -51,29 +51,7 @@ header .container {
 .desktop-nav ul li {
     margin-left: 20px;
 }
-.icon-cart{
-    cursor: pointer;
-    color: white;
-    margin-left: 15px;
 
-}
-.icon-cart:hover{
-    transform: scale(1.001);
-    transition: transform 0.3s ease;
-    color:#d3895f
-}
-.icon-cart span{
-    background-color: red;
-    border-radius: 50%;
-    padding: 2px 5px;
-    font-size: 0.8em; 
-}
-.icon-cart:hover span{
-    color: white;
-}
-body.showCart .cartTab {
-    inset: 0 0 0 auto; /* Show the cart */
-}
 .desktop-nav ul li a {
     text-decoration: none;
     color: #ffffff;
@@ -82,6 +60,7 @@ body.showCart .cartTab {
     color: #d3895f;
 }
 
+/*Hamburger menu*/
 .hamburger-menu {
     display: none; 
     font-size: 1.5em;
@@ -94,6 +73,7 @@ body.showCart .cartTab {
     transform: rotate(45deg); 
 }
 
+/* Mobile navigation menu*/
 .mobile-nav {
     display: none; /* Hidden by default */
     position: absolute;
@@ -142,6 +122,8 @@ body.showCart .cartTab {
 .order-summary{
     font-size: 1.1em;
 }
+
+/* Checkout form styles */
 .checkout-form{
     background-color: white;
     padding: 20px;
@@ -185,64 +167,19 @@ body.showCart .cartTab {
     margin-top: 10px;
 }
 
-
-
-
-.items-ordered{
-    background-color: #ffffff;
-    padding: 20px;
+/* "Order Summary" on top of the site */
+.summaryhead{
+    background: rgb(240, 240, 240);
+    padding: 15px;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-}
-.items-ordered table{
-    width: 100%;
-    border-collapse: collapse;
+    font-weight: 500;
 }
 
-/* Footer section */
-footer {
-    background-color: #493628;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    position: relative; /* Added to position the footer correctly */
-    bottom: 0; /* Ensure it stays at the bottom */
-    width: 100%;
-}
+
 /* Checkout Page Specific Styles (Continued) */
-.cartTab{
-    display: grid;
-    width: 400px;
-    background-color: #353432;
-    color: #c6c6c6;
-    position: fixed;
-    inset: 0 -400px 0 auto;
-    grid-template-rows:  70px 1fr 70px;
-    transition: inset .5s ease;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-.cart-items {
-    margin-bottom: 20px;
-}
 
-.cart-item {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-    margin-bottom: 10px;
-}
 
-.cart-item img {
-    max-height: 80px;
-    margin-right: 15px;
-}
-
-.item-details {
-    flex-grow: 1;
-}
-
+/* Styles for order items*/
 .item-name {
     font-weight: bold;
     margin-bottom: 5px;
@@ -258,29 +195,34 @@ footer {
     color: #333;
 }
 
-.remove-item {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9em;
-    transition: background-color 0.3s ease;
-}
 
-.remove-item:hover {
-    background-color: #d32f2f;
-}
 
 .order-item{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 10px;
 }
+
+
 .item-name, .item-qty, .item-price{
     padding: 5px 10px;
     border-right: 1px solid rgb(125, 125, 125);
     margin-top: 15px;
+}
+.sub {
+  /* styles for the subtraction button */
+  border: 1px solid #ccc;
+  padding: 2px 8px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.add {
+  /* styles for the addition button */
+  border: 1px solid #ccc;
+  padding: 2px 8px;
+  margin-left: 5px;
+  cursor: pointer;
 }
 .item-name{
     font-weight: 200;
@@ -295,7 +237,7 @@ footer {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     font-size: 20px;
-    font-weight: 200;
+    font-weight: 250;
     color: green;
 }
 /* Responsive Design */
