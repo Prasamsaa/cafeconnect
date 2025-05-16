@@ -288,6 +288,16 @@ footer {
 .item-price{
     border-right: none;
 }
+
+.order-total{
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 200;
+    color: green;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
     .desktop-nav {
