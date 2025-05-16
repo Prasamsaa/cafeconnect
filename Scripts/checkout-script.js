@@ -43,6 +43,8 @@ function displayOrderSummary(cartData, products) {
         console.error("Order summary or total div not found!");
         return;
     }
+    // Reset totalPrice before calculation
+    totalPrice = 0;
     // Clearing out order summary by default
     orderSummaryDiv.innerHTML = ''; // Clear it out
 
